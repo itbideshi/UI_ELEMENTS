@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#menu{
+			width: 100px;
+			height: 100px;
+			background: #F50078;
+			padding: 33px 20px;
+			box-sizing: border-box;	
+			border-radius: 50%;
+
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		#menu em.top{
+			top: 0;
+		}
+		#menu em.bottom{
+			bottom: 0;
+		}
+
+		#menu em{
+			background: #fff;
+			width: 100%;
+			height: 5px;
+			display: block;
+			border-radius: 20px;
+			transform: rotate(0deg);
+			position: relative;
+			transition: transform .3s ease-in-out, opacity .3s ease-in-out, top .3s ease-in-out, bottom .3s ease-in-out;
+		}
+		#menu em + em{
+			margin-top: 10px;
+		}
+		
+		#menu:focus{
+			outline: none;
+		}
+		#menu:focus em.middle{
+			opacity: 0;
+		}
+
+		#menu:focus em.top{
+			transform: perspective(400px) rotate(45deg);
+			transform-origin: center;
+			top: 15px;
+		}
+
+		#menu:focus em.bottom{
+			transform: perspective(400px) rotate(-45deg);
+			transform-origin: center;
+			bottom: 15px;
+		}
+
+	</style>
+</head>
+<body>
+	<nav id="menu" tabindex="-1">
+		<em class="top"></em>
+		<em class="middle"></em>
+		<em class="bottom"></em>
+	</nav>
+</body>
+</html>
